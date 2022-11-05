@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}{{category}}-News{% endblock %}
+
+{% block body %}
+
+    <section class="text-gray-600 body-font">
+        <div class="container px-3 py-24 mx-auto">
+          <div class="flex flex-wrap w-full mb-10">
+            <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+              <h1 class="sm:text-3xl text-2xl font-medium title-font  text-gray-900">Top Articles</h1>
+              <div class="h-1 w-20  lblue rounded"></div>
+            </div>
+            <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Find related articles...</p>
+          </div>
+          <div class="flex flex-wrap -m-4">
+
+          {% for i in articles %}
+
+            <div class="xl:w-1/4 md:w-1/2">
+              <div class="saf p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ i.urlToImage }}" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{ i.title }}</h3>
+
+                <p class="leading-relaxed text-base">{{ i.description|safe| truncatechars:80 }}</p>
+                <div class="flex">
+                    <h6 class="text-lg text-gray-900 font-medium title-font mt-1 ">{{ i.publishedAt|safe| truncatechars:11 }}</h6>
+                    <a href="/news/search/{{i.title}}"><span class="badge bg-warning text-dark mx-2">Read More</span></a>
+                </div>
+
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+  {% endblock %}

@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block title %}HOME{% endblock %}
+{% block body %}
+
+
+
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+          <div class="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
+              <img src="{{ stock.urlToImage }}" class="w-full object-cover h-full object-center block opacity-100 absolute inset-0" alt="..." style="filter: brightness(50%);">
+              <div class="text-center relative z-10 w-full">
+                  <h2 class="text-2xl  font-medium title-font mb-2">{{stock.title}}</h2>
+                  <p class="mb-8 text-gray-500">{{stock.description}}</p>
+                  <div class="flex justify-center">
+                    <a class="btn btn-light btdark2 border-2 rounded-1 mx-2" href="https://trendlyne.com/" target="_blank" role="button"><strong class="px-3">Market Updates</strong></a>
+                    <a class="btn btn-outline-light border-2 rounded-1" href="/news/stock-news" role="button"><strong class="px-3">News</strong></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+        <div class="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
+              <img src="{{ corona.urlToImage }}" class="w-full object-cover h-full object-center block opacity-100 absolute inset-0" alt="..." style="filter: brightness(50%);">
+              <div class="text-center relative z-10 w-full">
+                  <h2 class="text-2xl  font-medium title-font mb-2">{{corona.title}}</h2>
+                  <p class="mb-8 text-gray-500 ">{{corona.description}}</p>
+                  <div class="flex justify-center">
+                    <a class="btn btn-light btdark2 border-2 rounded-1 mx-2" href="https://news.google.com/covid19/map?hl=en-IN&mid=%2Fm%2F03rk0&gl=IN&ceid=IN%3Aen" target="_blank" role="button"><strong class="px-3">Corona Update</strong></a>
+                    <a class="btn btn-outline-light border-2 rounded-1" href="/news/corona" role="button"><strong class="px-3">News</strong></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="carousel-item">
+        <div class="flex flex-wrap w-full bg-gray-100 py-32 px-10 relative mb-4">
+              <img src="{{ sports.urlToImage }}" class="w-full object-cover h-full object-center block  absolute inset-0" alt="..." style="filter: brightness(50%);">
+              <div class="text-center relative z-10 w-full">
+                  <h2 class="text-2xl font-medium title-font mb-2">{{sports.title}}</h2>
+                  <p class="mb-8 text-gray-500">{{sports.description}}</p>
+                  <div class="flex justify-center">
+                    <a class="btn btn-light btdark2 mx-2 border-2 rounded-1" href="/news/sports" role="button"><strong class="px-3">Sports News</strong></a>
+                    <a class="btn btn-outline-light border-2 rounded-1" href="/news/sports/{{sports.title}}" role="button"><strong class="px-3">Learn More</strong></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-next mb-2" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+
+
+
+
+      <section class="text-gray-600 body-font">
+        <div class="container px-3 py-24 mx-auto">
+<div class="flex flex-wrap w-full mb-10">
+            <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+              <h1 class="sm:text-3xl text-2xl font-medium title-font  text-gray-900">Top Articles</h1>
+              <div class="h-1 w-20 lblue rounded"></div>
+            </div>
+          </div>
+          <div class="flex flex-wrap -m-4">
+
+          {% for i in articles %}
+
+            <div class="xl:w-1/4 md:w-1/2">
+              <div class="saf p-6 rounded-lg">
+                <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ i.urlToImage }}" alt="content">
+                <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{ i.title }}</h3>
+
+                <p class="leading-relaxed text-base">{{ i.description|safe| truncatechars:70 }}</p>
+                <div class="flex">
+                    <h6 class="text-lg text-gray-900 font-medium title-font mt-1 ">{{ i.publishedAt|safe| truncatechars:11 }}</h6>
+                    <a href="/news/all/{{i.title}}"><span class="badge bg-warning text-dark mx-2">Read More</span></a>
+                </div>
+
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+<!--
+<section class="text-gray-600 body-font">
+    <div class="container px-3 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        {% for i in articles %}
+        <div class="p-4 md:w-1/3">
+          <div class="h-full rounded-lg overflow-hidden">
+            <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{{ i.urlToImage }}" alt="blog">
+            <div class="p-6">
+              <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">Trending</h2>
+              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">{{ i.source.name }}</h1>
+              <p class="leading-relaxed mb-3">{{ i.title }}</p>
+              <div class="flex items-center flex-wrap ">
+                <a href="/news/all/{{i.title}}" class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                  <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14"></path>
+                    <path d="M12 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  -->
+
+
+
+{% endblock %}

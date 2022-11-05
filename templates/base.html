@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Kharra News is a simple django project to automate the fetching of news from top websites using api. Find news regarding sports, entertainment,business,health,corona etc. ">
+
+<meta name="robots" content="index, follow" />
+
+    <link rel="shortcut icon" type="image/x-icon" href="/static/r1.png">
+
+    <!--tailwind css-->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<style>
+
+.navbord{
+    border-color:#00162e;
+}
+.darkbg  {
+
+  background-color: #15202b;
+}
+
+.saf {
+     background-color: #00162e;
+}
+
+.lblue {
+     background-color: #069acf;
+}
+.saftext {
+    color:#d09230;
+}
+.safron {
+    background-color:#d09230;
+}
+
+
+h1 {
+    color:#d09230 !important;
+}
+h6 {
+    color:#d09230 !important;
+}
+h2 {
+    color:#d09230 !important;
+}
+p {
+    color:#069acf !important;
+}
+
+.saf2 {
+    color:#053453;
+}
+
+.btsaf {
+
+    background-color: #010914;
+
+}
+.btdark::hover {
+    background-color:#0583D2
+    color: #fff;
+}
+
+
+    .navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
+</style>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body class="saf">
+    <nav class="navbar navbar-expand-lg navbar-dark saf" >
+        <div class="container-fluid">
+          <a class="inline-flex navbar-brand font-bold ml-0" href="/"><img src="/static/r1.png" alt="logo"  class="mx-1 " style="width: 30px; height: 30px;      "> ALGO INDIA NEWS</a>
+          <a class="navbar-brand font-bold ml-0" href="/"> </a>
+
+
+
+              <a class="ml-3 text-gray-400" data-bs-toggle="collapse" data-bs-target="#collapseExample">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
+                    <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+                </svg>
+              </a>
+            <a class="ml-3 text-gray-400" data-bs-toggle="collapse" data-bs-target="#collapseExample2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </a>
+          <button class="navbar-toggler rounded-0 border-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">            <span class="navbar-toggler-icon"></span>
+          </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/news/stock-news">Stock Market</a></li>
+                  <li><a class="dropdown-item" href="/news/business">Business</a></li>
+                  <li><a class="dropdown-item" href="/news/sports">Sports</a></li>
+                  <!-- <li><a class="dropdown-item" href="/news/jee">JEE update</a></li> -->
+                 <li><a class="dropdown-item" href="/news/education">Education </a></li>
+                  <li><a class="dropdown-item" href="/news/technology">Technology</a></li>
+                  <li><a class="dropdown-item" href="/news/corona">Corona</a></li>
+                  <li><a class="dropdown-item" href="/news/health">Health</a></li>
+                  <li><a class="dropdown-item" href="/news/Entertainment">Entertainment</a></li>
+                  <li><a class="dropdown-item" href="/news/science">Science</a></li>
+
+                 </ul>
+                <li class="nav-item">
+           <!--     <a class="nav-link active" aria-current="page" href="/about">About Developer</a> -->
+              </li>
+              </li>
+            </ul>
+            <a class="btn btn-outline-light border-2 rounded-1 mx-2 " href="https://news.google.com/covid19/map?hl=en-IN&mid=%2Fm%2F03rk0&gl=IN&ceid=IN%3Aen" target="_blank" role="button"> <strong class="px-3">  Corona   </strong>  </a>
+            <a class="btn btn-outline-light border-2 rounded-1 mx-2 " href="https://trendlyne.com/" target="_blank" role="button"> <strong class="px-3">Market</strong></a>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+         <strong class="text-white pb-3 px-3"> Kalu Ram Kharra</strong>
+
+ <a href="https://www.github.com/kaluramkharra" class="text-gray-400">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-github " viewBox="0 0 24 24">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+</svg>
+</a>
+
+
+<a href="https://www.facebook.com/kaluram.kharra/" class="text-gray-400">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/kaluram-kharra/" class="ml-3 text-gray-400">
+        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+
+      <a href="https://twitter.com/kharra_kaluram" class="ml-3 text-gray-400">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/kaluramkharra/" class="ml-3 text-gray-400">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+        </svg>
+      </a>
+
+    </span>
+            <form class="pt-1"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_JUJz5hdUUKJzSa" async> </script> </form>
+        </div>
+
+        </div>
+      </nav>
+
+
+      <div class="collapse saf" id="collapseExample">
+        <div class="card card-body saf">
+          <form class="d-flex" action="/weather" method="GET">
+            <input class="form-control rounded-1 me-2" name="city" id="city" type="search" placeholder="Enter City Name" aria-label="Search">
+            <button class="btn rounded-1 safron" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+      <div class="collapse saf" id="collapseExample2">
+        <div class="card card-body saf">
+          <form class="d-flex" action="/search" method="GET">
+            <input class="form-control rounded-1 me-2" name="query" id="query" type="search" placeholder="Search Query" aria-label="Search">
+            <button class="btn rounded-1 safron" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+{% block body %}
+{% endblock %}
+
+
+<footer class="text-gray-600 body-font">
+  <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900" href="/">
+        <img src="/static/r1.png" alt="logo" style="width: 28px;">
+      <span class="ml-3 text-xl saftext">Algo India News</span>
+    </a>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 AlgoIndiaNews  —
+      <a href="https://www.linkedin.com/in/kaluram-kharra/" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@kaluramkharra</a>
+    </p>
+    <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <a href="https://www.facebook.com/kaluram.kharra/" class="text-gray-600">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/in/kaluram-kharra/" class="ml-3 text-gray-600">
+        <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+          <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+          <circle cx="4" cy="4" r="2" stroke="none"></circle>
+        </svg>
+      </a>
+
+      <a href="https://twitter.com/kharra_kaluram" class="ml-3 text-gray-600">
+        <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/kaluramkharra/" class="ml-3 text-gray-600">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+        </svg>
+      </a>
+
+    </span>
+  </div>
+</footer>
+
+
+
+
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
